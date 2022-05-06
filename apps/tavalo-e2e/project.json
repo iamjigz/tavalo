@@ -1,0 +1,27 @@
+{
+  "sourceRoot": "apps/tavalo-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/tavalo-e2e/cypress.json",
+        "devServerTarget": "tavalo:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "tavalo:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/tavalo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["tavalo"]
+}
